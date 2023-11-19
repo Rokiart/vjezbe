@@ -49,6 +49,7 @@ kustos varchar(50)
 create table umjetnickipravci(
 
 sifra int,
+umjetnickipravac varchar(50) not null,
 naziv varchar(50) not null,
 autor varchar(50),
 godinanastanka int not null,
