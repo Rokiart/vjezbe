@@ -12,7 +12,7 @@ use izlozba;
 
 create table izlozba(
 
-sifra int,
+sifra int primary key identity(1,1),
 nazivizlozbe varchar(50) not null,
 umjetnickipravac int,
 prostorija int not null,
@@ -25,7 +25,7 @@ vrijemerada time
 
 create table kustosi(
 
-sifra int, 
+sifra int primary key identity(1,1), 
 ime varchar(50)not null,
 prezime varchar(50) not null,
 strucnasprema varchar(50),
@@ -38,7 +38,7 @@ iban varchar(50)
 
 create table prostorije(
 
-sifra int,
+sifra int primary key identity(1,1),
 brojprostorije int not null,
 velicina decimal(5,2),
 radnovrijeme datetime,
@@ -48,7 +48,7 @@ kustos varchar(50)
 
 create table umjetnickipravci(
 
-sifra int,
+sifra int primary key identity(1,1),
 naziv varchar(50) not null,
 autor varchar(50),
 godinanastanka int not null,
@@ -58,3 +58,5 @@ godinanastanka int not null,
 alter table izlozba add foreign key (kustos) references kustosi (sifra);
 alter table izlozba add foreign key (prostorija) references prostorije (sifra);
 alter table izlozba add foreign key (umjetnickipravac) references umjetnickipravci (sifra);
+
+
