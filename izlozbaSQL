@@ -14,8 +14,9 @@ create table izlozba(
 
 sifra int,
 nazivizlozbe varchar(50) not null,
-vrsta varchar(50),
+umjetnickipravac varchar(50),
 kustos varchar(50) not null,
+prostorija int,
 datumpocetka date,
 datumzavrsetka date,
 vrijemerada time
