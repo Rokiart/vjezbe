@@ -14,18 +14,18 @@ create table izlozba(
 
 sifra int,
 nazivizlozbe varchar(50) not null,
-umjetnickipravac varchar(50),
-kustos varchar(50) not null,
-prostorija int,
+umjetnickipravac int,
+prostorija int not null,
+kustos int not null,
 datumpocetka date,
 datumzavrsetka date,
 vrijemerada time
 
 );
 
-create table kustos(
+create table kustosi(
 
-sifra int,
+sifra int, 
 ime varchar(50)not null,
 prezime varchar(50) not null,
 strucnasprema varchar(50),
@@ -36,7 +36,7 @@ iban varchar(50)
 
 );
 
-create table prostorija(
+create table prostorije(
 
 sifra int,
 brojprostorije int not null,
@@ -49,9 +49,12 @@ kustos varchar(50)
 create table umjetnickipravci(
 
 sifra int,
-umjetnickipravac varchar(50) not null,
 naziv varchar(50) not null,
 autor varchar(50),
 godinanastanka int not null,
 
 );
+
+alter table izlozba add foreign key (kustos) references kustosi (sifra);
+alter table izlozba add foreign key (prostorija) references prostorije (sifra);
+alter table izlozba add foreign key (umjetnickipravac) references umjetnickipravci (sifra);
