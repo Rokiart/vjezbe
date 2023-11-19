@@ -1,0 +1,55 @@
+use master;
+go
+drop database if exists izlozba;
+go
+create database izlozba;
+go
+alter database izlozba collate Croatian_CI_AS;
+go
+use izlozba;
+
+
+
+create table izlozba(
+
+sifra int,
+nazivizlozbe varchar(50) not null,
+vrsta varchar(50),
+kustos varchar(50) not null,
+datumpocetka date,
+datumzavrsetka date,
+vrijemerada time
+
+);
+
+create table kustos(
+
+sifra int,
+ime varchar(50)not null,
+prezime varchar(50) not null,
+strucnasprema varchar(50),
+adresa varchar(50),
+brojtelefona int not null,
+oib char(11),
+iban varchar(50)
+
+);
+
+create table prostorija(
+
+sifra int,
+brojprostorije int not null,
+velicina decimal(5,2),
+radnovrijeme datetime,
+kustos varchar(50)
+
+);
+
+create table umjetnickipravci(
+
+sifra int,
+naziv varchar(50) not null,
+autor varchar(50),
+godinanastanka int not null,
+
+);
